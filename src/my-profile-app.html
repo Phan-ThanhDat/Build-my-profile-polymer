@@ -1,35 +1,47 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
 <dom-module id="my-profile-app">
   <template>
     <style>
       :host {
         display: block;
+        --app-primary-color: #f315b0;
+        --app-secondary-color: #ee0d0d;
+        --app-accent-color: rgb(23, 80, 37);
+        -webkit-tap-highlight-color: rgba(49, 15, 238, 0);
       }
       app-header {
         background-color: #00897B;
         color: #fff;
       }
 
-      app-toolbar {
-        background-color: #10191B;
-        color: #fff;
+      .menu-btn {
+        display: none;
+      }
+
+      /* small screen */
+      @media (max-width: 767px) {
+        .menu-btn {
+          display: block;
+        }
       }
     </style>
 
-      <app-header slot="header" reveals shadow="true" effects="resize-title" >
-        <app-toolbar  sticky style="height: 64px;">
-          <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-          <div main-title>Title</div>
-        </app-toolbar>
-      </app-header>
+    <app-header slot="header" reveals effects="waterfall">
+      <app-toolbar>
+        <paper-icon-button class="menu-btn" icon="menu" drawer-toggle></paper-icon-button>
+        <div main-title>Title</div>
+        <paper-icon-button icon="settings" ></paper-icon-button>
 
+      </app-toolbar>
+    </app-header>
 
+    <sample-content size="100"></sample-content>
 
-
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -44,17 +56,6 @@
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
 
   </template>
 
