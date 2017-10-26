@@ -5,7 +5,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "app-layout": "polymerelements/app-layout#^2.0.0",
-    "iron-icon": "^2.0.1"
+    "iron-icon": "^2.0.1",
+    "iron-media-query": "^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",

@@ -4,7 +4,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
-
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 
 <dom-module id="my-profile-app">
@@ -38,6 +38,8 @@
       }
     </style>
 
+    <iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+
     <app-header slot="header" reveals effects="waterfall">
       <app-toolbar>
         <paper-icon-button class="menu-btn" icon="menu" on-click="_toggleDrawer"></paper-icon-button>
@@ -46,15 +48,18 @@
       </app-toolbar>
     </app-header>
 
-    <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
-      <a href="/">Home</a><br/>
-      <a href="/">Log in</a><br/>
-    </app-drawer>
+    <dom-if if="[[_shouldRenderDrawer]]">
+      <template>
+        <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
+          <a href="/">Home</a><br/>
+          <a href="/">Log in</a><br/>
+        </app-drawer>
+      </template>
+   </dom-if>
 
 
-      <app-drawer opened="{{drawerOpened2}}" align="right" swipe-open tabindex="0">
-
-  <div class="drawer-contents">
+  <app-drawer opened="{{drawerOpened2}}" align="right" swipe-open tabindex="0">
+    <div class="drawer-contents">
     <paper-icon-item>
       <iron-icon icon="inbox" item-icon slot="item-icon"></iron-icon>
       <span>inbox</span><br/>
@@ -124,6 +129,12 @@
       _toggleDrawer2() {
           this.drawerOpened2 = !this.drawerOpened2;
       }
+
+
+       _shouldRenderDrawer() {
+           return smallScreen;
+       }
+
     }
     window.customElements.define(MyProfileApp.is, MyProfileApp);
   </script>
